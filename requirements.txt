@@ -1,0 +1,9 @@
+pydantic>=2.5
+openai>=1.40
+python-dotenv>=1.0
+pillow>=10.0
+httpx>=0.27
+# Stage 3 SolidWorks backend (Windows only)
+pywin32>=306; sys_platform == "win32"
+# tests
+pytest>=8

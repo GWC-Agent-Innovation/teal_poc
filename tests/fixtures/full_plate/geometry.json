@@ -1,0 +1,567 @@
+{
+  "part": {
+    "part_number": "FULL-001",
+    "part_name": "Test plate",
+    "units": "mm"
+  },
+  "views": [
+    {
+      "name": "TOP"
+    },
+    {
+      "name": "FRONT"
+    }
+  ],
+  "overall_dimensions": {
+    "length": {
+      "value": 150,
+      "unit": "mm",
+      "status": "extracted",
+      "evidence": {
+        "raw_text": "150",
+        "view": "TOP",
+        "source_type": "dimension"
+      }
+    },
+    "width": {
+      "value": 90,
+      "unit": "mm",
+      "status": "extracted",
+      "evidence": {
+        "raw_text": "90",
+        "view": "TOP",
+        "source_type": "dimension"
+      }
+    },
+    "height": {
+      "value": 32,
+      "unit": "mm",
+      "status": "extracted",
+      "evidence": {
+        "raw_text": "32",
+        "view": "FRONT",
+        "source_type": "dimension"
+      }
+    }
+  },
+  "features": [
+    {
+      "id": "BASE_001",
+      "type": "base_plate",
+      "dimensions": {
+        "length": {
+          "value": 150,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "150",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        "width": {
+          "value": 90,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "90",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        "thickness": {
+          "value": 12,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "12",
+            "view": "FRONT",
+            "source_type": "dimension"
+          }
+        }
+      }
+    },
+    {
+      "id": "HOLE_001",
+      "type": "hole",
+      "quantity": 4,
+      "depth_type": "through",
+      "dimensions": {
+        "diameter": {
+          "value": 8,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "4X Ø8 THRU",
+            "view": "TOP",
+            "source_type": "callout"
+          }
+        }
+      },
+      "evidence": {
+        "raw_text": "Ø8 THRU",
+        "view": "TOP",
+        "source_type": "callout"
+      }
+    },
+    {
+      "id": "SLOT_001",
+      "type": "slot",
+      "quantity": 1,
+      "depth_type": "through",
+      "orientation": "along_y",
+      "dimensions": {
+        "length": {
+          "value": 40,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "40",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        "width": {
+          "value": 10,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "10",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        "end_radius": {
+          "value": 5,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "R5",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        }
+      }
+    },
+    {
+      "id": "POCKET_001",
+      "type": "pocket",
+      "quantity": 1,
+      "dimensions": {
+        "length": {
+          "value": 20,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "20",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        "width": {
+          "value": 30,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "30",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        "depth": {
+          "value": 4,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "4",
+            "view": "FRONT",
+            "source_type": "dimension"
+          }
+        }
+      }
+    },
+    {
+      "id": "BOSS_001",
+      "type": "boss",
+      "quantity": 1,
+      "dimensions": {
+        "diameter": {
+          "value": 30,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "Ø30",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        "height": {
+          "value": 20,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "20",
+            "view": "FRONT",
+            "source_type": "dimension"
+          }
+        }
+      },
+      "evidence": {
+        "raw_text": "Ø30",
+        "view": "TOP",
+        "source_type": "dimension"
+      }
+    },
+    {
+      "id": "BORE_001",
+      "type": "hole",
+      "quantity": 1,
+      "depth_type": "through",
+      "dimensions": {
+        "diameter": {
+          "value": 16,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "Ø16 THRU",
+            "view": "TOP",
+            "source_type": "callout"
+          }
+        }
+      },
+      "evidence": {
+        "raw_text": "Ø16 THRU",
+        "view": "TOP",
+        "source_type": "callout"
+      }
+    },
+    {
+      "id": "HOLE_002",
+      "type": "hole",
+      "quantity": 1,
+      "depth_type": "blind",
+      "dimensions": {
+        "diameter": {
+          "value": 6,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "Ø6 THRU",
+            "view": "TOP",
+            "source_type": "callout"
+          }
+        },
+        "depth": {
+          "value": 6,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "Ø6 ▽6",
+            "view": "FRONT",
+            "source_type": "dimension"
+          }
+        }
+      },
+      "evidence": {
+        "raw_text": "Ø6 THRU",
+        "view": "TOP",
+        "source_type": "callout"
+      }
+    },
+    {
+      "id": "FILLET_001",
+      "type": "fillet",
+      "quantity": 4,
+      "dimensions": {
+        "radius": {
+          "value": 6,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "R6 (4 PLACES)",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        }
+      },
+      "evidence": {
+        "raw_text": "CORNER RADIUS R6 (4 PLACES)",
+        "view": "TOP"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "feature_id": "HOLE_001",
+      "relationships": [
+        {
+          "type": "offset_from_edge",
+          "reference": "left_edge",
+          "value": 15,
+          "unit": "mm",
+          "orientation": "horizontal",
+          "instance": 1,
+          "target": "center",
+          "evidence": {
+            "raw_text": "15",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        {
+          "type": "offset_from_edge",
+          "reference": "bottom_edge",
+          "value": 15,
+          "unit": "mm",
+          "orientation": "vertical",
+          "instance": 1,
+          "target": "center",
+          "evidence": {
+            "raw_text": "15",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        {
+          "type": "offset_from_edge",
+          "reference": "right_edge",
+          "value": 15,
+          "unit": "mm",
+          "orientation": "horizontal",
+          "instance": 2,
+          "target": "center",
+          "evidence": {
+            "raw_text": "15",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        {
+          "type": "offset_from_edge",
+          "reference": "bottom_edge",
+          "value": 15,
+          "unit": "mm",
+          "orientation": "vertical",
+          "instance": 2,
+          "target": "center",
+          "evidence": {
+            "raw_text": "15",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        {
+          "type": "offset_from_edge",
+          "reference": "left_edge",
+          "value": 15,
+          "unit": "mm",
+          "orientation": "horizontal",
+          "instance": 3,
+          "target": "center",
+          "evidence": {
+            "raw_text": "15",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        {
+          "type": "offset_from_edge",
+          "reference": "top_edge",
+          "value": 15,
+          "unit": "mm",
+          "orientation": "vertical",
+          "instance": 3,
+          "target": "center",
+          "evidence": {
+            "raw_text": "15",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        {
+          "type": "offset_from_edge",
+          "reference": "right_edge",
+          "value": 15,
+          "unit": "mm",
+          "orientation": "horizontal",
+          "instance": 4,
+          "target": "center",
+          "evidence": {
+            "raw_text": "15",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        {
+          "type": "offset_from_edge",
+          "reference": "top_edge",
+          "value": 15,
+          "unit": "mm",
+          "orientation": "vertical",
+          "instance": 4,
+          "target": "center",
+          "evidence": {
+            "raw_text": "15",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        }
+      ]
+    },
+    {
+      "feature_id": "SLOT_001",
+      "relationships": [
+        {
+          "type": "offset_from_edge",
+          "reference": "left_edge",
+          "value": 35,
+          "unit": "mm",
+          "orientation": "horizontal",
+          "instance": null,
+          "target": "center",
+          "evidence": {
+            "raw_text": "35",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        {
+          "type": "centered_vertical",
+          "reference": "base",
+          "value": null,
+          "unit": "mm",
+          "orientation": null,
+          "instance": null,
+          "target": "center",
+          "evidence": {
+            "raw_text": null,
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        }
+      ]
+    },
+    {
+      "feature_id": "POCKET_001",
+      "relationships": [
+        {
+          "type": "offset_from_edge",
+          "reference": "right_edge",
+          "value": 30,
+          "unit": "mm",
+          "orientation": "horizontal",
+          "instance": null,
+          "target": "center",
+          "evidence": {
+            "raw_text": "30",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        {
+          "type": "centered_vertical",
+          "reference": "base",
+          "value": null,
+          "unit": "mm",
+          "orientation": null,
+          "instance": null,
+          "target": "center",
+          "evidence": {
+            "raw_text": null,
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        }
+      ]
+    },
+    {
+      "feature_id": "BOSS_001",
+      "relationships": [
+        {
+          "type": "offset_from_edge",
+          "reference": "left_edge",
+          "value": 80,
+          "unit": "mm",
+          "orientation": "horizontal",
+          "instance": null,
+          "target": "center",
+          "evidence": {
+            "raw_text": "80",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        {
+          "type": "centered_vertical",
+          "reference": "base",
+          "value": null,
+          "unit": "mm",
+          "orientation": null,
+          "instance": null,
+          "target": "center",
+          "evidence": {
+            "raw_text": null,
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        }
+      ]
+    },
+    {
+      "feature_id": "BORE_001",
+      "relationships": [
+        {
+          "type": "concentric",
+          "reference": "BOSS_001",
+          "value": null,
+          "unit": "mm",
+          "orientation": null,
+          "instance": null,
+          "target": "center",
+          "evidence": {
+            "raw_text": null,
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        }
+      ]
+    },
+    {
+      "feature_id": "HOLE_002",
+      "relationships": [
+        {
+          "type": "offset_from_edge",
+          "reference": "left_edge",
+          "value": 60,
+          "unit": "mm",
+          "orientation": "horizontal",
+          "instance": null,
+          "target": "center",
+          "evidence": {
+            "raw_text": "60",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        {
+          "type": "offset_from_edge",
+          "reference": "top_edge",
+          "value": 15,
+          "unit": "mm",
+          "orientation": "vertical",
+          "instance": null,
+          "target": "center",
+          "evidence": {
+            "raw_text": "15",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        }
+      ]
+    }
+  ],
+  "tolerances": [],
+  "notes": [],
+  "missing_information": [],
+  "ambiguities": []
+}

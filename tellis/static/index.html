@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tellis · Image to SolidWorks</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script type="importmap">
+    {"imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }}
+  </script>
+</head>
+<body>
+<header>
+  <h1>Tellis <span>image to 3D model or dimensioned drawing to SolidWorks</span></h1>
+  <div id="server-state" class="muted"></div>
+</header>
+
+<div class="layout">
+  <aside>
+    <form id="upload">
+      <h2>New job</h2>
+      <label>Workflow
+        <select id="workflow"><option value="image">Image to 3D model</option><option value="multiview">Multi-view engineering drawing to CAD</option><option value="drawing">Single-view traced profile to plate</option></select>
+      </label>
+      <label class="drop" id="drop">
+        <input type="file" id="image" name="image" accept=".png,.jpg,.jpeg,.webp" required>
+        <img id="drop-preview" alt="" hidden>
+        <span id="drop-text">Drop an image, or click to choose</span>
+      </label>
+      <label class="image-option">Longest side (mm) <small>real size of the part</small>
+        <input type="number" id="size" min="0.01" step="any" placeholder="e.g. 120">
+      </label>
+      <label class="image-option">Max faces <small>SolidWorks import budget</small>
+        <input type="number" id="faces" min="500" max="200000" step="500" placeholder="20000">
+      </label>
+      <label class="image-option">Mesh <small>optional, skips TRELLIS.2</small>
+        <input type="file" id="mesh" accept=".glb,.gltf,.obj,.ply,.stl">
+      </label>
+      <label class="check image-option"><input type="checkbox" id="dry-run"> Dry run (stop before SolidWorks)</label>
+      <label class="drawing-option" hidden>Plate thickness (mm)<input type="number" id="thickness" min="0.01" step="any" value="10"></label>
+      <label class="drawing-option" hidden>Raised relief (mm)<small>set 0 to disable</small><input type="number" id="relief" min="0" step="any" value="3"></label>
+      <label class="drawing-option" hidden>Overall height override (mm)<small>optional when the drawing has no height dimension</small><input type="number" id="height" min="0.01" step="any" placeholder="optional"></label>
+      <p class="multiview-option muted" hidden>Upload the complete engineering sheet. Tellis will interpret its front, top, side, section, and isometric views as one part, check dimensions across views, then build and verify CAD.</p>
+      <button type="submit" id="submit">Convert</button>
+    </form>
+    <h2>Jobs</h2>
+    <ul id="jobs" class="jobs"></ul>
+  </aside>
+
+  <main>
+    <div id="empty" class="placeholder">Upload an image to start, or pick a job.</div>
+    <section id="job" hidden>
+      <div class="job-head">
+        <img id="input-img" alt="input image">
+        <div>
+          <h2 id="job-title"></h2>
+          <div id="job-status" class="muted"></div>
+          <div id="warnings"></div>
+        </div>
+      </div>
+
+      <div class="flow" id="flow">
+        <div class="node" data-stage="input">2D image</div><div class="arrow">→</div>
+        <div class="node" data-stage="trellis">TRELLIS.2<small>image → mesh</small></div><div class="arrow">→</div>
+        <div class="node" data-stage="mesh">3D model<small>repair · decimate · scale</small></div><div class="arrow">→</div>
+        <div class="node" data-stage="solidworks">SolidWorks<small>import as solid</small></div><div class="arrow">→</div>
+        <div class="node" data-stage="export">SLDPRT / STEP</div>
+      </div>
+
+      <div class="viewer-wrap">
+        <div class="views" id="views">
+          <button data-view="trellis">TRELLIS.2 mesh</button>
+          <button data-view="model">3D model</button>
+          <button data-view="solidworks">SolidWorks part</button>
+          <label class="check"><input type="checkbox" id="wire"> Wireframe</label>
+        </div>
+        <div id="viewer"><div class="placeholder">No model yet.</div></div>
+      </div>
+
+      <div class="panels">
+        <div class="panel">
+          <h2>3D model</h2>
+          <div id="report"></div>
+          <div class="rerun">
+            <label>Longest side (mm) <input type="number" id="rerun-size" min="0.01" step="any"></label>
+            <label>Max faces <input type="number" id="rerun-faces" min="500" max="200000" step="500"></label>
+            <label class="check"><input type="checkbox" id="rerun-dry"> Dry run</label>
+            <button id="rerun">Re-run model + SolidWorks</button>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>SolidWorks</h2>
+          <div id="cad"></div>
+          <h2>Files</h2>
+          <ul id="files" class="files"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<div id="toast" hidden></div>
+<script type="module" src="/static/app.js"></script>
+</body>
+</html>

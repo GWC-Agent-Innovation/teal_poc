@@ -1,0 +1,184 @@
+{
+  "part": {
+    "part_number": "TEST-001",
+    "part_name": "Test plate",
+    "units": "mm"
+  },
+  "views": [
+    {
+      "name": "TOP"
+    },
+    {
+      "name": "FRONT"
+    }
+  ],
+  "overall_dimensions": {
+    "length": {
+      "value": 120,
+      "unit": "mm",
+      "status": "extracted",
+      "evidence": {
+        "raw_text": "120",
+        "view": "TOP",
+        "source_type": "dimension"
+      }
+    },
+    "width": {
+      "value": 80,
+      "unit": "mm",
+      "status": "extracted",
+      "evidence": {
+        "raw_text": "80",
+        "view": "TOP",
+        "source_type": "dimension"
+      }
+    },
+    "height": {
+      "value": 50,
+      "unit": "mm",
+      "status": "extracted",
+      "evidence": {
+        "raw_text": "50",
+        "view": "FRONT",
+        "source_type": "dimension"
+      }
+    }
+  },
+  "features": [
+    {
+      "id": "BASE_001",
+      "type": "base_plate",
+      "dimensions": {
+        "length": {
+          "value": 120,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "120",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        "width": {
+          "value": 80,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "80",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        "thickness": {
+          "value": 15,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "15",
+            "view": "FRONT",
+            "source_type": "dimension"
+          }
+        }
+      }
+    },
+    {
+      "id": "BOSS_001",
+      "type": "boss",
+      "quantity": 1,
+      "dimensions": {
+        "diameter": {
+          "value": 50,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "Ø50",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        "height": {
+          "value": 35,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "35",
+            "view": "FRONT",
+            "source_type": "dimension"
+          }
+        }
+      },
+      "evidence": {
+        "raw_text": "Ø50",
+        "view": "TOP",
+        "source_type": "dimension"
+      }
+    },
+    {
+      "id": "BORE_001",
+      "type": "hole",
+      "quantity": 1,
+      "depth_type": "through",
+      "dimensions": {
+        "diameter": {
+          "value": 30,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "Ø30 THRU",
+            "view": "TOP",
+            "source_type": "callout"
+          }
+        }
+      },
+      "evidence": {
+        "raw_text": "Ø30 THRU",
+        "view": "TOP",
+        "source_type": "callout"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "feature_id": "BOSS_001",
+      "relationships": [
+        {
+          "type": "centered_on_plate",
+          "reference": "base",
+          "value": null,
+          "unit": "mm",
+          "orientation": null,
+          "instance": null,
+          "target": "center",
+          "evidence": {
+            "raw_text": null,
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        }
+      ]
+    },
+    {
+      "feature_id": "BORE_001",
+      "relationships": [
+        {
+          "type": "concentric",
+          "reference": "BOSS_001",
+          "value": null,
+          "unit": "mm",
+          "orientation": null,
+          "instance": null,
+          "target": "center",
+          "evidence": {
+            "raw_text": null,
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        }
+      ]
+    }
+  ],
+  "tolerances": [],
+  "notes": [],
+  "missing_information": [],
+  "ambiguities": []
+}

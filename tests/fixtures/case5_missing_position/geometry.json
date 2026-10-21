@@ -1,0 +1,113 @@
+{
+  "part": {
+    "part_number": "TEST-001",
+    "part_name": "Test plate",
+    "units": "mm"
+  },
+  "views": [
+    {
+      "name": "TOP"
+    },
+    {
+      "name": "FRONT"
+    }
+  ],
+  "overall_dimensions": {
+    "length": {
+      "value": 120,
+      "unit": "mm",
+      "status": "extracted",
+      "evidence": {
+        "raw_text": "120",
+        "view": "TOP",
+        "source_type": "dimension"
+      }
+    },
+    "width": {
+      "value": 80,
+      "unit": "mm",
+      "status": "extracted",
+      "evidence": {
+        "raw_text": "80",
+        "view": "TOP",
+        "source_type": "dimension"
+      }
+    },
+    "height": {
+      "value": 15,
+      "unit": "mm",
+      "status": "extracted",
+      "evidence": {
+        "raw_text": "15",
+        "view": "FRONT",
+        "source_type": "dimension"
+      }
+    }
+  },
+  "features": [
+    {
+      "id": "BASE_001",
+      "type": "base_plate",
+      "dimensions": {
+        "length": {
+          "value": 120,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "120",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        "width": {
+          "value": 80,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "80",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        "thickness": {
+          "value": 15,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "15",
+            "view": "FRONT",
+            "source_type": "dimension"
+          }
+        }
+      }
+    },
+    {
+      "id": "HOLE_001",
+      "type": "hole",
+      "quantity": 1,
+      "depth_type": "through",
+      "dimensions": {
+        "diameter": {
+          "value": 10,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "Ø10 THRU",
+            "view": "TOP",
+            "source_type": "callout"
+          }
+        }
+      },
+      "evidence": {
+        "raw_text": "Ø10 THRU",
+        "view": "TOP",
+        "source_type": "callout"
+      }
+    }
+  ],
+  "relationships": [],
+  "tolerances": [],
+  "notes": [],
+  "missing_information": [],
+  "ambiguities": []
+}

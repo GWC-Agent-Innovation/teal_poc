@@ -1,0 +1,406 @@
+{
+  "part": {
+    "part_number": "CLEVIS-001",
+    "part_name": "Test plate",
+    "units": "mm"
+  },
+  "views": [
+    {
+      "name": "TOP"
+    },
+    {
+      "name": "FRONT"
+    }
+  ],
+  "overall_dimensions": {
+    "length": {
+      "value": 120,
+      "unit": "mm",
+      "status": "extracted",
+      "evidence": {
+        "raw_text": "120",
+        "view": "TOP",
+        "source_type": "dimension"
+      }
+    },
+    "width": {
+      "value": 80,
+      "unit": "mm",
+      "status": "extracted",
+      "evidence": {
+        "raw_text": "80",
+        "view": "TOP",
+        "source_type": "dimension"
+      }
+    },
+    "height": {
+      "value": 85,
+      "unit": "mm",
+      "status": "extracted",
+      "evidence": {
+        "raw_text": "85",
+        "view": "FRONT",
+        "source_type": "dimension"
+      }
+    }
+  },
+  "features": [
+    {
+      "id": "BASE_001",
+      "type": "base_plate",
+      "dimensions": {
+        "length": {
+          "value": 120,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "120",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        "width": {
+          "value": 80,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "80",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        },
+        "thickness": {
+          "value": 15,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "15",
+            "view": "FRONT",
+            "source_type": "dimension"
+          }
+        }
+      }
+    },
+    {
+      "id": "HOLE_001",
+      "type": "hole",
+      "quantity": 4,
+      "depth_type": "through",
+      "dimensions": {
+        "diameter": {
+          "value": 12,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "Ø12 THRU",
+            "view": "TOP",
+            "source_type": "callout"
+          }
+        }
+      },
+      "evidence": {
+        "raw_text": "Ø12 THRU",
+        "view": "TOP",
+        "source_type": "callout"
+      }
+    },
+    {
+      "id": "FILLET_001",
+      "type": "fillet",
+      "quantity": 4,
+      "dimensions": {
+        "radius": {
+          "value": 10,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "R10",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        }
+      },
+      "evidence": {
+        "raw_text": "BASE CORNER RADIUS R10 (4 PLACES)",
+        "view": "TOP"
+      }
+    },
+    {
+      "id": "EAR_001",
+      "type": "ear",
+      "quantity": 2,
+      "normal_axis": "x",
+      "top_type": "full_round",
+      "dimensions": {
+        "thickness": {
+          "value": 20,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "EAR THICKNESS = 20",
+            "view": "FRONT",
+            "source_type": "dimension"
+          }
+        },
+        "width": {
+          "value": 40,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "40",
+            "view": "RIGHT",
+            "source_type": "dimension"
+          }
+        },
+        "height": {
+          "value": 70,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "70",
+            "view": "RIGHT",
+            "source_type": "dimension"
+          }
+        },
+        "hole_diameter": {
+          "value": 30,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "Ø30 THROUGH",
+            "view": "RIGHT",
+            "source_type": "dimension"
+          }
+        },
+        "hole_height": {
+          "value": 50,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "50",
+            "view": "RIGHT",
+            "source_type": "dimension"
+          }
+        }
+      }
+    },
+    {
+      "id": "RIB_001",
+      "type": "rib",
+      "quantity": 2,
+      "attached_to": "EAR_001",
+      "side": "outer",
+      "centered_on_lug": true,
+      "dimensions": {
+        "rise": {
+          "value": 30,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "30 (RISE)",
+            "view": "DETAIL",
+            "source_type": "dimension"
+          }
+        },
+        "run": {
+          "value": 20,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "20",
+            "view": "FRONT",
+            "source_type": "dimension"
+          }
+        },
+        "thickness": {
+          "value": 10,
+          "unit": "mm",
+          "status": "extracted",
+          "evidence": {
+            "raw_text": "RIB THICKNESS = 10",
+            "view": "DETAIL",
+            "source_type": "dimension"
+          }
+        }
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "feature_id": "HOLE_001",
+      "relationships": [
+        {
+          "type": "offset_from_edge",
+          "reference": "left_edge",
+          "value": 20,
+          "unit": "mm",
+          "orientation": "horizontal",
+          "instance": 1,
+          "target": "center",
+          "evidence": {
+            "raw_text": "20",
+            "view": "TOP",
+            "source_type": "dimension"
+          },
+          "source_type": "table"
+        },
+        {
+          "type": "offset_from_edge",
+          "reference": "bottom_edge",
+          "value": 20,
+          "unit": "mm",
+          "orientation": "vertical",
+          "instance": 1,
+          "target": "center",
+          "evidence": {
+            "raw_text": "20",
+            "view": "TOP",
+            "source_type": "dimension"
+          },
+          "source_type": "table"
+        },
+        {
+          "type": "offset_from_edge",
+          "reference": "left_edge",
+          "value": 100,
+          "unit": "mm",
+          "orientation": "horizontal",
+          "instance": 2,
+          "target": "center",
+          "evidence": {
+            "raw_text": "100",
+            "view": "TOP",
+            "source_type": "dimension"
+          },
+          "source_type": "table"
+        },
+        {
+          "type": "offset_from_edge",
+          "reference": "bottom_edge",
+          "value": 20,
+          "unit": "mm",
+          "orientation": "vertical",
+          "instance": 2,
+          "target": "center",
+          "evidence": {
+            "raw_text": "20",
+            "view": "TOP",
+            "source_type": "dimension"
+          },
+          "source_type": "table"
+        },
+        {
+          "type": "offset_from_edge",
+          "reference": "left_edge",
+          "value": 20,
+          "unit": "mm",
+          "orientation": "horizontal",
+          "instance": 3,
+          "target": "center",
+          "evidence": {
+            "raw_text": "20",
+            "view": "TOP",
+            "source_type": "dimension"
+          },
+          "source_type": "table"
+        },
+        {
+          "type": "offset_from_edge",
+          "reference": "bottom_edge",
+          "value": 60,
+          "unit": "mm",
+          "orientation": "vertical",
+          "instance": 3,
+          "target": "center",
+          "evidence": {
+            "raw_text": "60",
+            "view": "TOP",
+            "source_type": "dimension"
+          },
+          "source_type": "table"
+        },
+        {
+          "type": "offset_from_edge",
+          "reference": "left_edge",
+          "value": 100,
+          "unit": "mm",
+          "orientation": "horizontal",
+          "instance": 4,
+          "target": "center",
+          "evidence": {
+            "raw_text": "100",
+            "view": "TOP",
+            "source_type": "dimension"
+          },
+          "source_type": "table"
+        },
+        {
+          "type": "offset_from_edge",
+          "reference": "bottom_edge",
+          "value": 60,
+          "unit": "mm",
+          "orientation": "vertical",
+          "instance": 4,
+          "target": "center",
+          "evidence": {
+            "raw_text": "60",
+            "view": "TOP",
+            "source_type": "dimension"
+          },
+          "source_type": "table"
+        }
+      ]
+    },
+    {
+      "feature_id": "EAR_001",
+      "relationships": [
+        {
+          "type": "offset_from_edge",
+          "reference": "left_edge",
+          "value": 40,
+          "unit": "mm",
+          "orientation": "horizontal",
+          "instance": 1,
+          "target": "center",
+          "evidence": {
+            "raw_text": "40",
+            "view": "FRONT",
+            "source_type": "dimension"
+          }
+        },
+        {
+          "type": "offset_from_edge",
+          "reference": "right_edge",
+          "value": 40,
+          "unit": "mm",
+          "orientation": "horizontal",
+          "instance": 2,
+          "target": "center",
+          "evidence": {
+            "raw_text": "40",
+            "view": "FRONT",
+            "source_type": "dimension"
+          }
+        },
+        {
+          "type": "centered_vertical",
+          "reference": "base",
+          "value": null,
+          "unit": "mm",
+          "orientation": null,
+          "instance": null,
+          "target": "center",
+          "evidence": {
+            "raw_text": "40 TYP",
+            "view": "TOP",
+            "source_type": "dimension"
+          }
+        }
+      ]
+    }
+  ],
+  "tolerances": [],
+  "notes": [],
+  "missing_information": [],
+  "ambiguities": []
+}

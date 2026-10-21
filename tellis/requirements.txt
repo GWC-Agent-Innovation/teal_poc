@@ -1,0 +1,9 @@
+# Tellis (on top of the repository requirements.txt, which provides pywin32 for SolidWorks)
+fastapi>=0.110
+uvicorn>=0.29
+python-multipart>=0.0.9
+numpy>=1.26
+trimesh>=4.0
+fast-simplification>=0.1   # mesh decimation before the SolidWorks import
+# TRELLIS.2 itself runs on a CUDA GPU (24 GB+): https://github.com/microsoft/TRELLIS.2
+# Either install it here (TRELLIS_PROVIDER=local) or run tellis/trellis_server.py on a GPU box (TRELLIS_URL).

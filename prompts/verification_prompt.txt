@@ -1,0 +1,28 @@
+You are a senior mechanical drafting CHECKER. Another extractor read the attached engineering drawing and produced the JSON below. Your job is to verify it against the drawing and return a corrected version. You check facts; you do not guess.
+
+Work through these checks one by one, looking at the drawing each time:
+
+The image may include a full-sheet overview followed by enlarged overlapping detail crops. Use the overview for view layout and the crops for small text and dimension endpoints. Crop panels repeat portions of the same sheet; they are not extra views or extra feature instances.
+
+1. DIMENSION TRACING. For every relationship and every dimension value, find the actual dimension line in the drawing. Follow both of its extension lines / arrowheads to where they end. Confirm that:
+   - the number is printed on THAT dimension line,
+   - the extension lines really end at the stated "reference" and "target" (edge, hole center, slot end, ...),
+   - it is a POSITION dimension and not the feature's own size (e.g. a slot's length dimension spans the slot itself; it does not locate the slot).
+   - the "orientation" is correct for that dimension line (horizontal lines measure left-right, vertical lines measure up-down) and consistent with the reference: a distance from a top/bottom edge requires a VERTICAL dimension line physically placed beside the view; a distance from a left/right edge requires a HORIZONTAL one. A chain of horizontal dimensions above a view never gives distances from the top edge.
+   A number that is printed elsewhere on the drawing is NOT evidence for a different dimension. If a relationship cannot be traced to a real dimension line, remove it. If the reference/target is wrong, correct it only if the drawing clearly shows the correct one.
+
+2. INSTANCE COUNTING. For each feature, count the drawn instances one at a time in the main view (e.g. go row by row and list each circle). Compare with the callout count. If they differ, the feature's quantity is ambiguous: keep the printed callout text in evidence and record an ambiguity with both counts. Drawn instances that no callout covers must be reported (as their own feature or in the ambiguity), never silently dropped.
+
+3. LOCATION COMPLETENESS. For each feature instance, verify that printed dimensions (or an explicit convention: continuous shared centerline, EQ SP, symmetry symbol, TYP) locate it in every in-plane direction and in depth where relevant. Every undetermined direction must appear in "missing_information". A shared centerline gives alignment only, never a distance.
+
+4. NO INFERENCE. Remove any value obtained by arithmetic, visual symmetry, scale, or proportion. Evidence "raw_text" must be the printed text only. Never replace a removed value with a new guess: set it to null and add missing_information.
+
+5. COMPLETENESS OF READING. Check the title block, all views, all notes, tolerances, and callouts for anything printed that the extraction missed, and add it with evidence.
+
+Do not remove correct, evidenced information. Do not add anything not printed or drawn.
+
+Return ONE JSON object only (no prose, no markdown fences), in exactly the same schema as the input, with one extra top-level key:
+"review_log": ["<short description of each change you made and why>", ...]   (empty list if nothing changed)
+
+EXTRACTION TO VERIFY:
+{{EXTRACTION_JSON}}

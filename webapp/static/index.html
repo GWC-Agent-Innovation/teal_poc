@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drawing to CAD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    {"imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }}
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="mark">⌖</span> Drawing <span class="arrow">→</span> CAD</div>
+    <label class="btn primary upload">
+      <input id="upload" type="file" accept=".png,.jpg,.jpeg,.webp" hidden>
+      Upload drawing
+    </label>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-title">Parts</div>
+      <ul id="parts" class="parts"></ul>
+    </aside>
+
+    <main id="main">
+      <section id="empty" class="empty">
+        <h1>2D engineering drawing → verified SolidWorks model</h1>
+        <p>Upload a drawing (PNG / JPG / WEBP) or pick a part on the left. Each run goes through five stages;
+          anything missing, ambiguous or conflicting stops the pipeline for your review instead of being guessed.</p>
+      </section>
+
+      <section id="part" hidden>
+        <div class="part-head">
+          <h2 id="part-name"></h2>
+          <span id="part-badges"></span>
+          <div class="actions">
+            <label class="toggle" title="Development override: build REVIEW_REQUIRED geometry (skips undetermined features)">
+              <input type="checkbox" id="allow-review"> allow review override</label>
+            <label class="toggle" title="Plan and simulate CAD without opening SolidWorks">
+              <input type="checkbox" id="dry-run"> dry run</label>
+            <button class="btn" id="run-stage1">Re-read drawing (Stage 1)</button>
+            <button class="btn primary" id="run-stage2">Run Stages 2–5</button>
+          </div>
+        </div>
+
+        <ol id="pipeline" class="pipeline"></ol>
+        <div id="banner" class="banner" hidden></div>
+
+        <nav class="tabs" id="tabs">
+          <button data-tab="compare" class="active">Drawing vs model</button>
+          <button data-tab="validation">Validation</button>
+          <button data-tab="review">Review</button>
+          <button data-tab="plan">CAD plan</button>
+          <button data-tab="verification">Verification</button>
+          <button data-tab="files">Files</button>
+        </nav>
+
+        <div class="tab" id="tab-compare">
+          <div class="compare">
+            <figure class="panel">
+              <figcaption>Input drawing</figcaption>
+              <img id="drawing-img" alt="input drawing">
+            </figure>
+            <figure class="panel">
+              <figcaption>Generated model <span class="muted" id="viewer-note"></span></figcaption>
+              <div id="viewer" class="viewer"><div class="placeholder">No model yet</div></div>
+            </figure>
+          </div>
+          <div id="renders" class="renders"></div>
+        </div>
+
+        <div class="tab" id="tab-validation" hidden></div>
+
+        <div class="tab" id="tab-review" hidden>
+          <div class="review-grid">
+            <div>
+              <h3>Questions the drawing does not answer</h3>
+              <p class="muted">The pipeline never guesses. Answer what you know (from the drawing owner, a revised drawing
+                or your own engineering decision); leave the rest blank. Answers are saved with your note in
+                <code>review_log.json</code> and the part is re-validated and rebuilt.</p>
+              <form id="questions" class="questions"></form>
+              <input id="answers-note" placeholder="Note (optional): where the answers come from">
+              <div class="editor-actions">
+                <span id="answers-msg" class="muted"></span>
+                <button class="btn primary" id="apply-answers" type="button">Apply answers &amp; rebuild</button>
+              </div>
+            </div>
+            <div>
+              <h3>Review history</h3>
+              <ul id="review-log" class="log-list"></ul>
+              <details class="advanced">
+                <summary>Advanced: edit the geometry JSON directly</summary>
+                <div class="editor">
+                  <div class="editor-head">
+                    <span id="geom-source" class="muted"></span>
+                    <button class="btn small" id="discard-review" type="button">Discard review</button>
+                  </div>
+                  <textarea id="geom-editor" spellcheck="false"></textarea>
+                  <input id="review-note" placeholder="Review note: what you decided and why (required)">
+                  <div class="editor-actions">
+                    <span id="editor-msg" class="muted"></span>
+                    <button class="btn" id="save-review" type="button">Save JSON &amp; re-validate</button>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab" id="tab-plan" hidden></div>
+        <div class="tab" id="tab-verification" hidden></div>
+        <div class="tab" id="tab-files" hidden></div>
+      </section>
+    </main>
+  </div>
+  <div id="toast" class="toast" hidden></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
